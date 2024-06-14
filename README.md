@@ -12,18 +12,13 @@ This service has 3 endpoints :  Create, Get & Delete,
 You can access the endpoint use terminal or CMD on your local machine
 
 ### Endpoint Insert Data
-`curl --header "Content-Type: application/json" \
---request POST \
-  --data '{"id":1000,"name":"sweet chocolate Ilise", "stock":81,"price":23488.67,"rating":4.0}' \
-  http://localhost:8080/items`
+`curl --header "Content-Type: application/json" --request POST --data '{"id":1000,"name":"sweet chocolate Ilise", "stock":81,"price":23488.67,"rating":4.0}' http://localhost:8080/items`
 
 ### Enpoint Get All Data
-`curl --header "Content-Type: application/json" \
-  --request GET http://localhost:8080/items`
+`curl --header "Content-Type: application/json" --request GET http://localhost:8080/items`
 
 ### Endpoint Delete 
-`curl --header "Content-Type: application/json"\
- --request DELETE http://localhost:8080/items/:id"`
+`curl --header "Content-Type: application/json" --request DELETE http://localhost:8080/items/:id"`
 
 
 ## Additional
