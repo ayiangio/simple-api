@@ -30,11 +30,11 @@ spec:
           name:  simpel-api
         resources:
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 50m
+            memory: 20Mi
           limits:
-            cpu: 200m
-            memory: 200Mi
+            cpu: 75m
+            memory: 50Mi
         volumeMounts:
         - name: localtime
           mountPath: /etc/localtime
