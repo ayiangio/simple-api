@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  simpel-api
+  namespace: api
+  labels:
+    app:  simpel-api
+spec:
+  selector:
+    matchLabels:
+      app: simpel-api
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app:  simpel-api
+    spec:
+      containers:
+      - name:  simpel-api
+        image:  ayiangio/simpel-api
+        ports:
+        - containerPort:  8080
+          name:  simpel-api
+        resources:
+          requests:
+            cpu: 75m
+            memory: 50Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - name: localtime
+          mountPath: /etc/localtime
+      volumes:
+        - name: localtime
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Jakarta
+      restartPolicy: Always
